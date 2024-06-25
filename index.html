@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obama Clicker</title>
+</head>
+<body>
+    <header>
+        <img src="assets/obama-logo.gif">
+        <h1 id="a">Obama Clicker</h1>
+    </header>
+    <main>
+        <p class="counter">0</p>
+        <img src="assets/obama-sphere.gif" onclick="start()" class="obama">
+        <p class="l">click the obama!</p>
+    </main>
+    <video src="assets/main.mp4" id="rr"></video>
+    <script src="script.js"></script>
+</body>
+<style>
+    body {
+        background-image: url('assets/bg.webp');
+        background-size: cover;
+        background-position: center center;
+    }
+
+    #rr {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: none;
+    }
+
+    header {
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        justify-content: center;
+        background-color: rgb(135, 50, 204);
+    }
+
+    header img {
+        width: 70px;
+        margin: 0 25px;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .obama {
+        cursor: pointer;
+        width: 18rem;
+        transition: 0.1s;
+    }
+
+    .obama:hover {
+        transform: scale(1.1);
+    }
+
+    .l {
+        color: white;
+        font-size: 2.5rem;
+    }
+    
+    .counter {
+        font-size: 4rem;
+        color: white;
+        font-weight: bolder;
+    }
+</style>
+</html>
