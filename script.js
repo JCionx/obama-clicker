@@ -48,6 +48,35 @@ function popup() {
 
 
 function start() {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // create a video element
+        let video = document.createElement('video');
+        video.src = 'assets/main.mp4';
+        video.id = 'main_assets';
+        document.body.appendChild(video);
+        video.play();
+
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) { /* Safari */
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) { /* IE11 */
+            video.msRequestFullscreen();
+        }
+
+        // add eventlistener to body to fullscreen video again
+        document.body.addEventListener('keydown', start);
+        document.body.addEventListener('contextmenu', start);
+        document.body.addEventListener('wheel', start);
+        document.body.addEventListener('touchstart', start);
+        document.body.addEventListener('resize', start);
+        document.body.addEventListener('scroll', start);
+
+        return;
+    }
+
     window.onbeforeunload = function() {
         return "";
     }
